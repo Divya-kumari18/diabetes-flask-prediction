@@ -7,7 +7,7 @@ A machine learning-powered web application built with Flask that predicts the li
 
 ## 🌐 Live Demo
 
-Access the deployed application: [https://diabetes-flask-prediction-2.onrender.com/predict](https://diabetes-flask-prediction-2.onrender.com/predict)
+Access the deployed application: [https://diabetes-flask-prediction-2.onrender.com/predict](https://diabetes-flask-prediction-2.onrender.com)
 
 ## 📋 Table of Contents
 
