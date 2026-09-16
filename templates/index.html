@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Diabetes Prediction</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="card">
+
+        <h1>Diabetes Prediction</h1>
+
+        <p class="subtitle">
+            Enter the patient information below
+        </p>
+
+        <form action="/predict" method="POST">
+
+            <div class="form-grid">
+
+                <div class="input-group">
+                    <label>Pregnancies</label>
+                    <input
+                        type="number"
+                        name="pregnancies"
+                        min="0"
+                        required>
+                </div>
+
+
+                <div class="input-group">
+                    <label>Glucose</label>
+                    <input
+                        type="number"
+                        name="glucose"
+                        step="any"
+                        required>
+                </div>
+
+
+                <div class="input-group">
+                    <label>Blood Pressure</label>
+                    <input
+                        type="number"
+                        name="blood_pressure"
+                        step="any"
+                        required>
+                </div>
+
+
+                <div class="input-group">
+                    <label>Skin Thickness</label>
+                    <input
+                        type="number"
+                        name="skin_thickness"
+                        step="any"
+                        required>
+                </div>
+
+
+                <div class="input-group">
+                    <label>Insulin</label>
+                    <input
+                        type="number"
+                        name="insulin"
+                        step="any"
+                        required>
+                </div>
+
+
+                <div class="input-group">
+                    <label>BMI</label>
+                    <input
+                        type="number"
+                        name="bmi"
+                        step="0.1"
+                        required>
+                </div>
+
+
+                <div class="input-group">
+                    <label>Diabetes Pedigree Function</label>
+                    <input
+                        type="number"
+                        name="diabetes_pedigree"
+                        step="0.001"
+                        required>
+                </div>
+
+
+                <div class="input-group">
+                    <label>Age</label>
+                    <input
+                        type="number"
+                        name="age"
+                        min="1"
+                        required>
+                </div>
+
+            </div>
+
+            <button type="submit">
+                Predict
+            </button>
+
+        </form>
+
+
+        {% if prediction %}
+
+        <div class="result">
+
+            <h2>Prediction Result</h2>
+
+            <p class="prediction">
+                {{ prediction }}
+            </p>
+
+            <p>
+                Model estimated probability:
+                <strong>{{ probability }}%</strong>
+            </p>
+
+            <p class="note">
+                This is a machine-learning prediction and is not
+                a medical diagnosis.
+            </p>
+
+        </div>
+
+        {% endif %}
+
+
+        {% if error %}
+
+        <div class="error">
+            {{ error }}
+        </div>
+
+        {% endif %}
+
+    </div>
+
+</div>
+
+</body>
+
+</html>
